@@ -1,11 +1,11 @@
 # Setup
-title: AFE - Blog
+title: AFE
 description: Kişisel blog
-url: https://afegaming.github.io
-avatar: /avatar.jpeg
+url: https://afeblog.github.io
+avatar: /avatar.png
 paginate: 5
 permalink: pretty
-cover_image: /bg.jpeg
+cover_image: /bg.jpg
 
 # Gems
 plugins:
