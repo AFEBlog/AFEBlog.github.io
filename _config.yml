@@ -50,6 +50,20 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Ahmet Tunahan Demir
+  name: Ahmet
   url: https://github.com/AFEGaming
   email: gjawamaz@anonaddy.me
+
+months_tr:
+  - Ocak
+  - Şubat
+  - Mart
+  - Nisan
+  - Mayıs
+  - Haziran
+  - Temmuz
+  - Ağustos
+  - Eylül
+  - Ekim
+  - Kasım
+  - Aralık
