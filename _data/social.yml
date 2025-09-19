@@ -7,3 +7,15 @@
 - title: Instagram
   url: https://www.instagram.com/afe_.d/
   icon: fab fa-instagram
+- title: YouTube
+  url: https://www.youtube.com/@A.F.E.Gaming
+  icon: fab fa-youtube
+- title: Mastodon
+  url: https://mastodon.social/@AFEGaming
+  icon: fab fa-mastodon
+- title: Pixelfed
+  url: https://pixelfed.social/i/web/profile/721400960633596366
+  icon: fas fa-camera
+- title: Telegram
+  url: https://t.me/AFEGaming
+  icon: fab fa-telegram
