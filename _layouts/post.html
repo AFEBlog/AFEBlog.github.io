@@ -5,15 +5,13 @@ layout: default
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-meta">
-    {%- assign date_format = site.date_format | default: "%-d %b %Y" -%}
-    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
-    {%- if page.last_modified_at -%}
-      <span> ~ </span>
-      {%- assign mdate = page.last_modified_at | date_to_xmlschema -%}
-      <time datetime="{{ mdate }}" itemprop="dateModified">
-        {{ mdate | date: date_format }}
-      </time>
-    {%- endif -%}
+    {% assign month = page.date | date: "%-m" | minus: 1 %}
+    {% assign day = page.date | date: "%-d" %}
+    {% assign year = page.date | date: "%Y" %}
+    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ day }} {{ site.months_tr[month] }} {{ year }}
+    </time>
+
     {%- if page.author -%}
       <span> • </span>
       {% for author in page.author %}
@@ -44,7 +42,9 @@ layout: default
       <li>
         <a href="{{ post.url | relative_url }}">
           {{ post.title }}
-          <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small>
+          <small><time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date_to_string }}
+          </time></small>
         </a>
       </li>
     {% endfor %}
