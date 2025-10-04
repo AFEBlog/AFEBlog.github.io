@@ -12,6 +12,16 @@ layout: default
       {{ day }} {{ site.months_tr[month] }} {{ year }}
     </time>
 
+    {%- if page.last_modified_at -%}
+      <span> ~ </span>
+      {% assign mmonth = page.last_modified_at | date: "%-m" | minus: 1 %}
+      {% assign mday = page.last_modified_at | date: "%-d" %}
+      {% assign myear = page.last_modified_at | date: "%Y" %}
+      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+        {{ mday }} {{ site.months_tr[mmonth] }} {{ myear }}
+      </time>
+    {%- endif -%}
+
     {%- if page.author -%}
       <span> • </span>
       {% for author in page.author %}
