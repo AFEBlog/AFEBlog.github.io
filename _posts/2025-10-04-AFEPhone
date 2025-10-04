@@ -1,0 +1,90 @@
+---
+layout: post
+title: Switchli Telefon Tasarımım (AFE Phone)
+date: 2025-10-04 19:35:00 +0300
+tags:
+  - donanım
+  - tasarım
+  - telefon
+toc: true
+---
+
+Yaklaşık **2-3 yıl önce** aklıma gelen bir fikir vardı: **switchli telefon**.  
+Bugün bu fikrimi ve ilk çizimlerimi burada paylaşmak istiyorum.  
+
+## Fikir Nasıl Ortaya Çıktı?
+
+Günümüzde telefonlarda kamerayı, mikrofonu veya bağlantıları kapattığımızı düşünsek bile, yazılımın gerçekten bunları tamamen devre dışı bırakıp bırakmadığından emin olamıyoruz.  
+Benim aklıma gelen çözüm çok daha netti:  
+Telefonun arkasına **fiziksel anahtarlar (switchler)** koymak ve bu anahtarlarla donanımı **manuel olarak kapatmak**.
+
+## Hangi Donanımlar İçin Switch?
+
+- **Wi-Fi**  
+- **Bluetooth**  
+- **SIM kart bağlantısı**  
+- **Mikrofon**  
+- **Kamera (ön/arka)**  
+- **NFC**
+- **ve dış dünya ile etkileşimde bulunan çoğu şey**
+
+Bu şekilde kullanıcı, istediği bileşeni tek bir hareketle tamamen kapatabiliyor.  
+Hiçbir yazılıma veya ayara güvenmeye gerek kalmıyor; kontrol tamamen kullanıcının elinde oluyor.  
+
+## Tasarımda Öne Çıkan Noktalar
+
+- Arka tarafta sade ama işlevsel bir switch alanı  
+- Ekstra ışık göstergelerine gerek yok; switchlerin pozisyonu açık/kapalı durumunu belli ediyor  
+- Ön kamera için kapak gereksiz, çünkü arka switch zaten kamerayı tamamen kapatıyor  
+- Sistem olarak **açık kaynaklı Android (Vanilla veya Custom ROM)** olarak düşünmekteyim 
+
+## Avantajları
+
+- **Gizlilik:** Kamera, mikrofon, Wi-Fi ve benzeri bileşenler fiziksel olarak devre dışı kalıyor.  
+- **Enerji tasarrufu:** Kullanılmayan parçalar gerçekten kapanıyor.  
+- **Kullanıcı özgürlüğü:** Donanım kontrolü tamamen kullanıcının elinde.  
+- **Açık kaynak:** Yazılım tarafında şeffaflık sağlanıyor.
+
+## Dezavantajlar
+
+- Modern telefonlara göre biraz daha klasik bir tasarım  
+- Kullanıcı alışkanlığı gerektiriyor; herkes donanımı manuel yönetmeye alışık değil  
+- Ekstra switch alanı, arka yüzeyde yer kaplayabiliyor  
+
+---
+
+## İlk Tasarımım: AFE Phone
+
+Bu fikri ilk düşündüğüm zaman, defterime basit bir taslak çizmiştim.  
+İsmini **AFE Phone** koymuştum.  
+Amacı netti: **Gizlilik odaklı, açık kaynak bir telefon.**
+
+![AFE Phone Tasarımı](https://raw.githubusercontent.com/AFEBlog/Blog-images/refs/heads/main/IMG_20251004_183028.jpg)
+
+### Çizimde Yazdıklarım
+
+- **Amaç:** Gizlilik odaklı, açık kaynak asıllı bir cihaz.  
+- **Özellikler:**  
+  - Arka tarafta fiziksel switchler  
+  - Donanımı tamamen devre dışı bırakabilme  
+  - Custom ROM veya Vanilla Android kullanımı  
+  - Floating island, IR, termal sensör gibi ek fikirler  
+- **İçindekiler:** Normal bir akıllı telefon donanımı  
+- **Dış görünüş:**  
+  - Ön tarafta Foss uygulamalarla sade bir arayüz  
+  - Arka tarafta kameranın yanında switch alanı  
+  - Aşağı kısımda cihazın ismi: *AFE Phone*  
+
+### Tasarım Üzerine Düşüncelerim
+
+O dönem çizimim çok basitti ama fikrin özü şuydu:  
+“Bir telefonu yazılıma değil, **kullanıcının fiziksel kontrolüne** bırakmak.”  
+
+Bugün dönüp baktığımda, hâlâ bunun çok mantıklı bir yaklaşım olduğunu düşünüyorum.  
+Modern telefonlarda gizlilik endişeleri her geçen yıl artıyor.  
+Ama fiziksel anahtarlarla donatılmış bir cihaz, bu sorunu kökünden çözebilir.
+
+---
+
+Belki ileride bu fikri geliştirip gerçek bir **prototip** haline getirmek mümkün olur.  
+Basit başladı ama bence geleceğe yönelik güzel bir fikir. 🔋🔒
