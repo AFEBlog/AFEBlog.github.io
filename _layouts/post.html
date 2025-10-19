@@ -52,17 +52,32 @@ layout: default
       <li>
         <a href="{{ post.url | relative_url }}">
           {{ post.title }}
- <small>
-  {% assign month = post.date | date: "%-m" | minus: 1 %}
-  {% assign day = post.date | date: "%-d" %}
-  {% assign year = post.date | date: "%Y" %}
-  <time datetime="{{ post.date | date_to_xmlschema }}">
-    {{ day }} {{ site.months_tr[month] }} {{ year }}
-  </time>
-</small>
+          <small>
+            {% assign month = post.date | date: "%-m" | minus: 1 %}
+            {% assign day = post.date | date: "%-d" %}
+            {% assign year = post.date | date: "%Y" %}
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ day }} {{ site.months_tr[month] }} {{ year }}
+            </time>
+          </small>
         </a>
       </li>
     {% endfor %}
   </ul>
 </aside>
 {% endif %}
+
+<!-- ShareThis BEGIN -->
+<div class="sharethis-inline-share-buttons"></div>
+<!-- ShareThis END -->
+
+<hr style="margin:20px 0; border:none; border-top:2px solid #ddd;">
+
+<!-- ShareThis Reaction Buttons BEGIN -->
+<div class="sharethis-inline-reaction-buttons"></div>
+<!-- ShareThis Reaction Buttons END -->
+
+<script type='text/javascript' 
+  src='https://platform-api.sharethis.com/js/sharethis.js#property=68f509e032b6e03861c953da&product=inline-share-buttons,inline-reaction-buttons' 
+  async='async'>
+</script>
