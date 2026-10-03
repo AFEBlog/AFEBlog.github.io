@@ -55,12 +55,12 @@ UART bağlantısı sağlandıktan sonra seri arayüz üzerinden `admin` kullanı
 
 Daha sonra dosya sistemini inceledim ve cihazın ham konfigürasyon dosyası indirdim.
 
-![UART](../Medya/003)
+![UART](https://afeblog.github.io/Medya/003)
 
 > [!Note]
 > UART baud hızı`115200`.
 
-![UART ve SSH ekran alıntısı](../Medya/001)
+![UART ve SSH ekran alıntısı](https://afeblog.github.io/Medya/001)
 
 ---
 ## 3. RAW JSON Config Yapısı ve Şifrelenmiş Key'ler
@@ -205,7 +205,7 @@ Ben en başta `"Enable": true` yaptım ve web arayüzüne erişemedim, ve `Reset
 
 Eleman türü `text` yapıldığında, cihazın arka planda çözmüş olduğu açık metin (decrypted) parola ekranda görünür hale geldi ve not edildi.
 
-![Ekran Görüntüsü](../Medya/002)
+![Ekran Görüntüsü](https://afeblog.github.io/Medya/002)
 
 *(Dipnot: Bu pratik web enjeksiyon mantığı [DonanımHaber Forumu'ndaki ilgili paylaşımdan](https://forum.donanimhaber.com/mesaj/yonlen/149377529) esinlenilerek uygulanmıştır.)*
 
