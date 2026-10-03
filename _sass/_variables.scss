@@ -49,6 +49,14 @@
   --spacer: 1rem;
   --spacer-2: calc(var(--spacer) * 1.5);
   --spacer-3: calc(var(--spacer) * 3);
+
+  --blockquote-color: #FF9279;
+  --callout-note: #4C9AFF;
+  --callout-tip: #4CAF6A;
+  --callout-important: #A84F2A;
+  --callout-warning: #D99A2B;
+  --callout-info: #3AAFC1;
+  --callout-caution: #FF3A3A;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,6 +72,14 @@
     --border-color: rgba(255,255,255,.15);
 
     --code-bg: #282828;
+
+    --blockquote-color: #FF9279;
+    --callout-note: #6EA8FE;
+    --callout-tip: #63C174;
+    --callout-important: #E09A5A;
+    --callout-warning: #E6B84A;
+    --callout-info: #55C5D5;
+    --callout-caution: #FF5B5B;
   }
 }
 

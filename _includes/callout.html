@@ -1,0 +1,26 @@
+{% assign type = include.type | default: "info" | downcase %}
+{% assign title = include.title | default: type | capitalize %}
+
+<div class="callout callout-{{ type }}">
+  <div class="callout-title">
+    <svg class="callout-icon" viewBox="0 0 24 24" aria-hidden="true">
+      {% if type == 'note' %}
+        <path d="M12 2 a10 10 0 1 0 0 20 a10 10 0 0 0 0-20 M11 10h2v7h-2v-7 M11 6h2v2h-2V6"/>
+      {% elsif type == 'tip' %}
+        <path d="M9 21h6v-2H9v2 M12 2 a7 7 0 0 0-4 12.74 V17h8v-2.26 A7 7 0 0 0 12 2"/>
+      {% elsif type == 'important' %}
+        <path d="M11 2h2v13h-2V2 M11 18h2v4h-2v-4"/>
+      {% elsif type == 'warning' %}
+        <path d="M12 2 L1 21 H23 Z M11 8h2v7h-2V8 M11 17h2v2h-2v-2"/>
+      {% elsif type == 'caution' %}
+        <path d="M12 2 L2 21 H22 Z M11 8h2v6h-2V8 M11 16h2v2h-2v-2"/>
+      {% else %}
+        <path d="M11 10h2v7h-2v-7 M11 6h2v2h-2V6"/>
+      {% endif %}
+    </svg>
+    <span>{{ title }}</span>
+  </div>
+  <div class="callout-content">
+    {{ include.content | markdownify }}
+  </div>
+</div>
