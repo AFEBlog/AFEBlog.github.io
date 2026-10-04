@@ -31,6 +31,8 @@ layout: default
         {%- if forloop.last == false %}, {% endif -%}
       {% endfor %}
     {%- endif -%}
+    <span> • </span>
+    {% include reading-time.html %}
   </div>
 
   {{ content }}

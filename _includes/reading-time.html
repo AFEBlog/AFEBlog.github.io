@@ -1,0 +1,61 @@
+{%- comment -%}
+  _includes/reading-time.html
+
+  Eklentisiz (saf Liquid) tahmini okuma süresi. GitHub Pages --safe modunda çalışır.
+
+  Kullanım:
+    post layout'unda         -> include reading-time.html
+    liste / index sayfasında -> include reading-time.html content=post.content
+    hızı değiştirmek için    -> include reading-time.html wpm=200
+
+  Sayıma KATILMAYAN elemanlar (içerikleriyle birlikte atılır):
+    area, audio, canvas, code, embed, footer, form, img, map, math,
+    nav, object, pre, script, svg, table, track, video
+  (area/embed/img/track "void" eleman: içerik taşımadığı için strip_html zaten temizler.)
+
+  Sayıma KATILANLAR: paragraflar, başlıklar, listeler, blockquote ve callout (div) metinleri.
+{%- endcomment -%}
+
+{%- assign rt_wpm  = include.wpm | default: 180 -%}
+{%- assign rt_text = include.content | default: content -%}
+
+{%- comment -%} 1) Kapanış etiketi olan elemanları içeriğiyle birlikte sil {%- endcomment -%}
+{%- assign rt_skip = "audio,canvas,code,footer,form,map,math,nav,object,pre,script,svg,table,video" | split: "," -%}
+
+{%- for rt_tag in rt_skip -%}
+  {%- assign rt_open  = "<" | append: rt_tag -%}
+  {%- assign rt_close = "</" | append: rt_tag | append: ">" -%}
+
+  {%- if rt_text contains rt_open -%}
+    {%- assign rt_parts = rt_text | split: rt_open -%}
+    {%- capture rt_clean -%}
+      {{- rt_parts[0] -}}
+      {%- for rt_part in rt_parts offset: 1 -%}
+        {%- if rt_part contains rt_close -%}
+          {%- comment -%} Kapanıştan sonrasını al (sondaki boşluk, kapanışın en sonda olduğu durumu korur) {%- endcomment -%}
+          {{- rt_part | append: " " | split: rt_close | last -}}
+        {%- else -%}
+          {%- comment -%} Kapanışı yok (ör. <svg ... />): açılışı geri koy, strip_html temizlesin {%- endcomment -%}
+          {{- rt_open -}}{{- rt_part -}}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign rt_text = rt_clean -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} 2) Bitişik blokların kelimelerini birbirine yapıştırma ("</p><p>" -> "ab") {%- endcomment -%}
+{%- assign rt_blocks = "p,li,div,blockquote,h1,h2,h3,h4,h5,h6,dt,dd,figcaption" | split: "," -%}
+{%- for rt_b in rt_blocks -%}
+  {%- assign rt_b_close = "</" | append: rt_b | append: ">" -%}
+  {%- assign rt_b_close_sp = rt_b_close | append: " " -%}
+  {%- assign rt_text = rt_text | replace: rt_b_close, rt_b_close_sp -%}
+{%- endfor -%}
+{%- assign rt_text = rt_text | replace: "<br", " <br" -%}
+
+{%- comment -%} 3) Kalan HTML'i temizle, kelimeleri say, dakikaya çevir (yukarı yuvarla) {%- endcomment -%}
+{%- assign rt_words   = rt_text | strip_html | number_of_words -%}
+{%- assign rt_minutes = rt_words | times: 1.0 | divided_by: rt_wpm | ceil -%}
+{%- if rt_minutes < 1 -%}{%- assign rt_minutes = 1 -%}{%- endif -%}
+
+<span class="reading-time" title="{{ rt_words }} kelime · {{ rt_wpm }} kelime/dk">{{ rt_minutes }} dk okuma</span>
