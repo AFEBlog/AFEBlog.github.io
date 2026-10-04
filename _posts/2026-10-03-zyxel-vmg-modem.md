@@ -57,8 +57,11 @@ Daha sonra dosya sistemini inceledim ve cihazın ham konfigürasyon dosyası ind
 
 ![UART](https://afeblog.github.io/Medya/003.png)
 
-> [!Note]
-> UART baud hızı`115200`.
+{% include callout.html
+   type="info"
+   title="UART Baud Hızı"
+   content="UART baud hızı **115200**."
+%}
 
 ![UART ve SSH ekran alıntısı](https://afeblog.github.io/Medya/001.png)
 
@@ -182,8 +185,11 @@ Elde ettiğimiz şifreli metni JSON dosyasındaki `X_ZYXEL_EXT` -> `DynamicDNS` 
   }
 ```
 
-> [!Important]
-> `"Enable": false` olarak bırakıldığından emin olunmalıdır. Aksi takdirde modem açılışta DDNS servisini başlatmaya çalışırken kilitlenebilir ve `192.168.1.1` web arayüzüne erişim tamamen kesilebilir.
+{% include callout.html
+   type="caution"
+   title="Dikkat"
+   content="**\"Enable\": false** olarak bırakıldığından emin olunmalıdır. Aksi takdirde modem açılışta DDNS servisini başlatmaya çalışırken kilitlenebilir ve **192.168.1.1** web arayüzüne erişim tamamen kesilebilir."
+%}
 
 Ben en başta `"Enable": true` yaptım ve web arayüzüne erişemedim, ve `Reset` tuşunu kullanarak sıfırladım, bende bu yeni şifreyle tekrar yama uyguladım.
 ### Adım Adım Uygulama ve DOM Trick:
@@ -268,8 +274,12 @@ Test-NetConnection 192.168.1.1 -Port 22
 
 Modern işletim sistemlerinde (Windows OpenSSH / OpenSSH 8.8+) eski ve zayıf kabul edilen kriptografik algoritmalar varsayılan olarak devre dışı bırakılmıştır. Bu durum, eski Dropbear sürümlerine bağlanırken aşamalı sıkılaşma hatalarına (handshake failure) yol açar.
 
-> [!Important]
-> geri kalan kısmı okumak istemeyenler `ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o MACs=+hmac-sha1 root@192.168.1.1` komutunu kullanabilir.
+{% include callout.html
+   type="tip"
+   title="Hızlı Çözüm"
+   content="Geri kalan kısmı okumak istemeyenler için: `ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o MACs=+hmac-sha1 root@192.168.1.1` komutunu kullanabilirsiniz."
+%}
+
 ### Karşılaşılan Aşamalar ve Hatalar
 
 #### Aşama 1: KEX (Key Exchange) Hatası
